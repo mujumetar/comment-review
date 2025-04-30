@@ -17,12 +17,12 @@ function List({ data, setTask, setData, avt_img }) {
 
     return (
         <>
-            <Container className='my-2 w-auto border'>
-                <Row>
+            <Container className='my-2 w-auto h-auto'>
+                <Row className='gy-5'>
                     {
                         data.map((ele) => (
 
-                            <div className="col-md-4 border">
+                            <div className="col-md-4 ">
                                 <div className="card p-3 text-center px-4">
 
                                     <div className="user-image">
