@@ -2,7 +2,7 @@
 import { Container, Row, Col, Table } from 'react-bootstrap';
 
 
-export const AddTask = ({ HandleTask, setTask, task, star, setStar, setName, name }) => {
+export const AddTask = ({ HandleTask, setTask, task, star, setStar, setName, name, taskref, nameref }) => {
 
 
     return (
@@ -13,7 +13,7 @@ export const AddTask = ({ HandleTask, setTask, task, star, setStar, setName, nam
 
                     <Col lg={4} className=' position-fixed  py-5 bottom-0 start-0 d-flex flex-column g-5  mx-auto w-100'>
                         <label htmlFor="" >Name:</label>
-                        <input type='text' required minLength="15" className='form-control mx-2 mb-2' placeholder='Write Your Name...' value={name} onChange={(e) => setName(e.target.value)} />
+                        <input type='text' ref={taskref} required minLength="15" className='form-control mx-2 mb-2' placeholder='Write Your Name...' value={name} onChange={(e) => setName(e.target.value)} />
 
                         <label htmlFor="">minimum 15 words:</label>
                         <input type='text' required className='form-control mx-2 mb-2' placeholder='Submit Your Review...' value={task} onChange={(e) => setTask(e.target.value)} />

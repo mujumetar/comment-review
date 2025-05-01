@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useState, useEffect } from 'react'
 import { AddTask } from './AddTask'
 import { v4 as uuidv4 } from 'uuid';
@@ -16,9 +16,13 @@ function Task() {
     generator.generateRandomAvatar();
     let avt_img = generator.generateRandomAvatar('avatar');
 
-
+let taskref = useRef()
+let nameref = useRef()
     function HandleTask() {
-        let obj = {
+
+
+        if(task || name != ""){
+ let obj = {
             task,
             name: name,
             img: avt_img,
@@ -28,6 +32,14 @@ function Task() {
 
         console.log(obj)
         setData([...data, obj])
+        }
+        else{
+          taskref.current.style.border="2px solid red"
+          nameref.current.style.border="2px solid red"
+        }
+       
+
+        
     }
     console.log(data)
 
@@ -35,8 +47,8 @@ function Task() {
 
     return (
         <>
-            <List data={data} setTask={setTask} setData={setData} avt_img={avt_img} />
-            <AddTask HandleTask={HandleTask} task={task} setTask={setTask} star={star} setStar={setStar} data={data} name={name} setName={setName}/>
+            <List data={data} setTask={setTask} setData={setData}avt_img={avt_img} />
+            <AddTask HandleTask={HandleTask} task={task} setTask={setTask} taskref={taskref} nameref={nameref} star={star} setStar={setStar} data={data} name={name} setName={setName}/>
         </>
     )
 }
